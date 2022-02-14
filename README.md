@@ -1,5 +1,11 @@
 # Upgrade App Sample
 
+## Background
+
+Slack does not currently provide a way for users to know that an app has an update available. While admins can check an app's directory listing to see if new scopes are available for proactive approval, there isn't an obvious or scalable way for an admin to know when to check this page nor how to initiate the update if found.
+
+The duty falls to app developers to notify admins and users in Slack when such an update is available. This sample app combines several of those techniques in a single app so that devs can learn where/how to creatively alert users when updates are available to their workspace.
+
 ## Installation
 
 #### Create a Slack App
