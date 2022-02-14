@@ -1,0 +1,31 @@
+{
+  "name": "upgrade-app-sample",
+  "version": "1.0.0",
+  "description": "A scaffold template for Slack apps",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Slack Technologies, LLC",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "bolt",
+    "slackapi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slackapi/upgrade-app-sample.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slackapi/upgrade-app-sample/issues"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.8.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
