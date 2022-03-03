@@ -1,8 +1,8 @@
 const actionTestApp = async ({ ack, body, client }) => {
   try {
-    await ack()
+    await ack();
     // Call views.open with the built-in client
-    const result = await client.views.open({
+    await client.views.open({
       // Pass a valid trigger_id within 3 seconds of receiving it
       trigger_id: body.trigger_id,
       // View payload
@@ -34,15 +34,15 @@ const actionTestApp = async ({ ack, body, client }) => {
               },
               action_id: 'select_notif_conversation',
               response_url_enabled: true,
-              initial_conversation: body.user.id
+              initial_conversation: body.user.id,
             },
             label: {
               type: 'plain_text',
               text: 'Send a test message to ...',
-            }
-          }
-        ]
-      }
+            },
+          },
+        ],
+      },
     });
   } catch (error) {
     console.error(error);

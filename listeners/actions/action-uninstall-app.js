@@ -1,6 +1,6 @@
 const actionUninstallApp = async ({ ack, body, client }) => {
   try {
-    await ack()
+    await ack();
     // Call views.open with the built-in client
     const result = await client.views.open({
       // Pass a valid trigger_id within 3 seconds of receiving it
@@ -12,22 +12,22 @@ const actionUninstallApp = async ({ ack, body, client }) => {
         callback_id: 'modal_uninstall_app',
         title: {
           type: 'plain_text',
-          text: 'Confirm uninstall'
+          text: 'Confirm uninstall',
         },
         blocks: [
           {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: 'Are you sure you want to uninstall this app?'
-            }
-          }
+              text: 'Are you sure you want to uninstall this app?',
+            },
+          },
         ],
         submit: {
           type: 'plain_text',
-          text: 'Submit'
-        }
-      }
+          text: 'Submit',
+        },
+      },
     });
     console.log(result);
   } catch (error) {

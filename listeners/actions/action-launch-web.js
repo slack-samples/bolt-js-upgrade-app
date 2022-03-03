@@ -1,6 +1,6 @@
 const actionLaunchWeb = async ({ ack }) => {
   try {
-    await ack()
+    await ack();
   } catch (error) {
     console.error(error);
   }

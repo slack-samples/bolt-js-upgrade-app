@@ -1,26 +1,25 @@
 const { App, FileInstallationStore, LogLevel } = require('@slack/bolt');
-const { ConsoleLogger } = require('@slack/logger');
 const { registerListeners } = require('./listeners');
 
 const html = require('./templates');
 
 require('dotenv').config();
 
-/** Initialization **/
+// Initialization
 const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   clientId: process.env.SLACK_CLIENT_ID,
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   installerOptions: {
-    stateVerification: false
+    stateVerification: false,
   },
   installationStore: new FileInstallationStore({
     baseDir: './installs',
-    historicalDataEnabled: false
-  }), 
+    historicalDataEnabled: false,
+  }),
   socketMode: true,
   appToken: process.env.SLACK_APP_TOKEN,
-  logLevel: LogLevel.DEBUG,  
+  logLevel: LogLevel.DEBUG,
   customRoutes: [
     {
       path: '/',
@@ -28,7 +27,7 @@ const app = new App({
       handler: (req, res) => {
         res.writeHead(200);
         res.end(html.htmlInstall);
-      }
+      },
     },
     {
       path: '/app',
@@ -36,7 +35,7 @@ const app = new App({
       handler: (req, res) => {
         res.writeHead(200);
         res.end(html.htmlApp);
-      }
+      },
     },
     {
       path: '/install',
@@ -44,7 +43,7 @@ const app = new App({
       handler: (req, res) => {
         res.writeHead(200);
         res.end(html.htmlInstall);
-      }
+      },
     },
     {
       path: '/upgrade',
@@ -52,15 +51,15 @@ const app = new App({
       handler: (req, res) => {
         res.writeHead(200);
         res.end(html.htmlUpgrade);
-      }
-    }
-  ]
+      },
+    },
+  ],
 });
 
-/** Register Listeners **/
+// Register Listeners
 registerListeners(app);
 
-/** Start Bolt App **/
+// Start Bolt App
 (async () => {
   try {
     await app.start(process.env.PORT || 3000);

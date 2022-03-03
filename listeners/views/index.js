@@ -1,4 +1,4 @@
-const { viewUninstallApp } = require('./view-uninstall-app.js');
+const { viewUninstallApp } = require('./view-uninstall-app');
 const { viewSendTestNotif } = require('./view-send-test-notif');
 
 module.exports.register = (app) => {

@@ -2,7 +2,6 @@ const viewUninstallApp = async ({ ack, body, client }) => {
   await ack();
 
   try {
-    
     // This view will not be visible to end users indefinitely.
     // But will be for a short time after uninstall which is helpful for testing a reinstallation.
     // After some time, only the Message and About time are accessible to users of uninstalled apps.
@@ -12,24 +11,23 @@ const viewUninstallApp = async ({ ack, body, client }) => {
         type: 'home',
         blocks: [
           {
-            type: "header",
+            type: 'header',
             text: {
-              type: "plain_text",
-              text: "Goodbye ..."
-            }
+              type: 'plain_text',
+              text: 'Goodbye ...',
+            },
           },
           {
             type: 'section',
             block_id: 'sec_uninstalled_message',
             text: {
               type: 'mrkdwn',
-              text: `This app has been uninstalled. Click <http://localhost:3000/install|here> to reinstall the base version of this app.`
-            }
-          }]
-      }
+              text: 'This app has been uninstalled. Click <http://localhost:3000/install|here> to reinstall the base version of this app.',
+            },
+          }],
+      },
     });
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
     return;
   }

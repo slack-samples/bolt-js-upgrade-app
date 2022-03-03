@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-let css =
-  `
+const css = `
     html {
       margin: 0;
       padding: 0;
@@ -14,10 +13,9 @@ let css =
     h3 {
       color: #565656;
     }
-  `
+  `;
 
-let htmlUpgrade =
-  `
+const htmlUpgrade = `
     <!DOCTYPE html>
     <html lang='en'>
     <head>
@@ -36,6 +34,6 @@ let htmlUpgrade =
       </div>
     </body>
     </html>
-  `
+  `;
 
 module.exports = htmlUpgrade;

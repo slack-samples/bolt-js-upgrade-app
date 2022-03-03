@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-let css =
-  `
+const css = `
     html {
       margin: 0;
       padding: 0;
@@ -11,10 +10,9 @@ let css =
       text-align: center;
       padding-top: 50px;
     }
-  `
+  `;
 
-let htmlApp =
-  `
+const htmlApp = `
     <!DOCTYPE html>
     <html lang='en'>
     <head>
@@ -31,6 +29,6 @@ let htmlApp =
       </div>
     </body>
     </html>
-  `
+  `;
 
 module.exports = htmlApp;
