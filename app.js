@@ -12,6 +12,7 @@ const app = new App({
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   installerOptions: {
     stateVerification: false,
+    port: process.env.PORT,
   },
   installationStore: new FileInstallationStore({
     baseDir: './installs',
