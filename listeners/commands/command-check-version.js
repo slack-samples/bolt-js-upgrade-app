@@ -26,6 +26,7 @@ const commandCheckAppVersion = async ({ ack, client, body, respond }) => {
     };
 
     // Check if current install is using latest scopes by comparing to our .env variable
+    // For example: 'chat:write,commands,app_mentions:read,reactions:write'
     const upgradeScopes = process.env.SLACK_UPGRADE_SCOPES.split(',');
 
     upgradeScopes.forEach((scope) => {
