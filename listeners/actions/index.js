@@ -4,8 +4,8 @@ const { actionUninstallApp } = require('./action-uninstall-app');
 const { actionTestApp } = require('./action-test-app');
 
 module.exports.register = (app) => {
-  app.action('btn-launch-web', actionLaunchWeb);
-  app.action('btn-upgrade-app', actionUpgradeApp);
-  app.action('btn-uninstall-app', actionUninstallApp);
-  app.action('btn-test-notif', actionTestApp);
+  app.action('btn_launch_web', actionLaunchWeb);
+  app.action('btn_upgrade_app', actionUpgradeApp);
+  app.action('btn_uninstall_app', actionUninstallApp);
+  app.action('btn_test_notif', actionTestApp);
 };
