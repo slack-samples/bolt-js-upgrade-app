@@ -22,7 +22,7 @@ const viewUninstallApp = async ({ ack, body, client }) => {
             block_id: 'sec_uninstalled_message',
             text: {
               type: 'mrkdwn',
-              text: `This app has been uninstalled. Click <${process.env.SLACK_HOSTNAME}:${process.env.PORT}/install|here> to reinstall the base version of this app.`,
+              text: `This app has been uninstalled. Click <${process.env.SLACK_HOSTNAME}/install|here> to reinstall the base version of this app.`,
             },
           }],
       },
