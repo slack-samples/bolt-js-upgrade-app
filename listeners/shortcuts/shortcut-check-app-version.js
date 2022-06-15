@@ -10,7 +10,7 @@ const shortcutCheckAppVersion = async ({ shortcut, ack, body, client }) => {
     let upgrade = false;
 
     // eslint-disable-next-line prefer-const
-    let view = {
+    const view = {
       type: 'modal',
       title: {
         type: 'plain_text',

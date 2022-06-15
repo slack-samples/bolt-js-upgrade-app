@@ -8,7 +8,7 @@ const viewSendTestNotif = async ({ ack, client, body, respond }) => {
     let upgrade = false;
 
     // eslint-disable-next-line prefer-const
-    let message = {
+    const message = {
       response_type: 'in_channel',
       text: 'What do you know, it works?',
       blocks: [
