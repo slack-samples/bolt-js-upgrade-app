@@ -1,7 +1,7 @@
 {
-  "name": "upgrade-app-sample",
+  "name": "bolt-js-upgrade-app",
   "version": "1.0.0",
-  "description": "A scaffold template for Slack apps",
+  "description": "Slack app demonstrating how to prompt users to update existing installations",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/slackapi/upgrade-app-sample.git"
+    "url": "https://github.com/slack-samples/bolt-js-upgrade-app.git"
   },
   "bugs": {
-    "url": "https://github.com/slackapi/upgrade-app-sample/issues"
+    "url": "https://github.com/slack-samples/bolt-js-upgrade-app/issues"
   },
   "dependencies": {
     "@slack/bolt": "^3.8.1",
