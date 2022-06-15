@@ -35,7 +35,7 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
                 text: 'Open web app',
               },
               action_id: 'btn-launch-web',
-              url: 'http://localhost:3000/app',
+              url: `${process.env.SLACK_HOSTNAME}/app`,
             },
           ],
         },
@@ -140,7 +140,7 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
         },
       });
 
-      view.blocks[2].elements[0].url = 'http://localhost:3000/upgrade';
+      view.blocks[2].elements[0].url = `${process.env.SLACK_HOSTNAME}/upgrade`;
 
       view.blocks[2].elements.push({
         type: 'button',
