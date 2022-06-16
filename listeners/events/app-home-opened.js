@@ -70,6 +70,13 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
           },
         },
         {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Try the `/check-app-version` slash command.\nTry the *Check app version* global shortcut.',
+          },
+        },
+        {
           type: 'actions',
           block_id: 'blk_actions_testing',
           elements: [
@@ -119,7 +126,9 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
         },
       ],
     };
-    // Check if current install is using latest scopes by comparing to our .env variable
+
+    // Check if current install is using latest scopes by comparing the output of auth.est
+    // to the upgraded scopes pulled from the environment variable.
     const upgradeScopes = process.env.SLACK_UPGRADE_SCOPES.split(',');
 
     upgradeScopes.forEach((scope) => {
@@ -129,7 +138,8 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
     });
 
     // If the scopes don't match and we have decided that an app update is available,
-    // we can update the blocks to give the user a custom update elements
+    // we can update the app home view blocks to inform user that an updated version
+    // is availble for them to review and install to the workspace.
     if (upgrade && process.env.SLACK_PROMPT_INSTALL === 'true') {
       view.blocks.splice(1, 0, {
         type: 'section',
@@ -140,9 +150,15 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
         },
       });
 
-      view.blocks[2].elements[0].url = `${process.env.SLACK_HOSTNAME}/upgrade`;
+      // Accessing section block of default app home view
+      const appHomeActionBtns = view.blocks[2];
 
-      view.blocks[2].elements.push({
+      // Link to webpageinstructing user that an upgrade is available
+      const openWebAppBtn = appHomeActionBtns.elements[0];
+      openWebAppBtn.url = `${process.env.SLACK_HOSTNAME}/upgrade`;
+
+      // Add a second action button that provides a direct install link to upgrade immediately
+      appHomeActionBtns.elements.push({
         type: 'button',
         style: 'primary',
         text: {
