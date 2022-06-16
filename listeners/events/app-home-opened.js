@@ -180,8 +180,8 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
       const appHomeTestingSection = view.blocks[7];
 
       // Upgraded apps have a new feature where you can @-mention the bot
-      const newFeatureDesc = '\n`invite` the bot to a channel and @-mention it.';
-      appHomeTestingSection.text.text.concat(newFeatureDesc);
+      const newFeatureDesc = '\n`/invite` the bot to a channel and @-mention it.';
+      appHomeTestingSection.text.text += newFeatureDesc;
     }
 
     try {
