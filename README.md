@@ -6,15 +6,15 @@ Slack does not currently provide a way for end users to know that a newer versio
 
 The responsibility falls to app developers to notify admins and end users in Slack when such an update requiring action (i.e. install to append new scopes) is available. This sample app combines several of those techniques in a single app so that developers can learn where/how to creatively alert users when app updates are available to their workspace. In this way, workspaces can be updated quicker and more effectively rather than lagging behind the latest release and requiring support to understand why/how to access new features.
 
-## Installation
+## Project setup
 
-#### Create a Slack App
+### Create a Slack App
 1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest".
 2. Choose the workspace you want to install the application to.
 3. Copy the entire contents of [manifest.json](./manifest.json) into the JSON text box (replacing the placeholder text) and click *Next*.
 4. Review the configuration and click *Create*.
 
-#### Environment Variables
+### Environment Variables
 Before you can run the app, you'll need to create an `.env` file and update the secrets:
 
 1. Copy `.env.sample` to `.env`
@@ -24,7 +24,7 @@ Before you can run the app, you'll need to create an `.env` file and update the 
 5. Set `SLACK_START_SCOPES` to `chat:write,commands` and your `SLACK_UPGRADE_SCOPES` to `chat:write,commands,app_mentions:read,reactions:write`.
 6. Finally, set `SLACK_PROMPT_INSTALL` to `false` to start.
 
-#### Install Dependencies
+### Install Dependencies
 
 ``` bash
 git clone https://github.com/slack-samples/bolt-js-upgrade-app.git
@@ -32,7 +32,7 @@ cd bolt-js-upgrade-app
 npm install
 ```
 
-#### Run Bolt Server
+### Run Bolt Server
 
 `npm start` or
 
@@ -58,7 +58,7 @@ Stores the HTML files rendered by the various custom http routes to simulate an 
 
 ## OAuth
 
-This sample uses a `FileInstallationStore` to store tokens in plain-text in the `./installs` directory (created after first installation). While this technique is not recommended for production apps, it allows you to easily inspect authorizations and avoids the need to set up a database when developing with this app.
+This sample uses [Bolt's](https://slack.dev/bolt-js/concepts#authenticating-oauth) `FileInstallationStore` to store tokens in plain-text in the `./installs` directory (created after first installation). While this technique is not recommended for production apps, it allows you to easily inspect authorizations and avoids the need to set up a database when developing with this app.
 
 When using OAuth, Slack requires a public URL where it can redirect requests so your app can generate a token. In this sample app, [`ngrok`](https://ngrok.com/download) is being used. Checkout [this guide](https://ngrok.com/docs/getting-started) for setting it up.
 
@@ -88,6 +88,8 @@ The URL that ngrok generates is what you use when populating your [environment v
 
 Once your environment values are saved, your Slack app is configured, and your Bolt server is running (and ngrok tunnel, if applicable), you'll need to install the app to your workspace. Complete this step by visiting http://localhost:3000 (or your ngrok URL, e.g. https://3cxb89939.ngrok.io) in your browser and following the prompts to install the app.
 
+![Web app when accessed in your web browser](/images/web-app-landing-page.png "Web app landing page")
+
 If successful, the install details and token will be saved to the `./installs` folder of your current working directory with your workspace's team ID used as a subdirectory name.
 
 The link you just clicked at the root domain of your web app will always install the starting scopes `chat:write` & `commands` (i.e. `SLACK_START_SCOPES`). This is because you don't want to install additional scopes right away. You need the opportunity to prompt the user to reinstall the app with additional permissions.
@@ -97,6 +99,10 @@ Open Slack and try one of the following interactions:
 - Open the App Home by quick switching to "Upgrade App Bot" or finding the app in the **Apps** view. The App Home contains a link to the "web app", some basic install details (including the currently installed scopes -- there should be only two if this is a new install using the `manifest.json`), a test notification button, and an action to uninstall the app.
 - Use the `/check-app-version` slash command in any conversation.
 - Use the `Check app version` global shortcut from the **+** icon in the message composer or using the search bar at the top of the Slack client.
+
+![App Home with starting scopes, upgrade available](/images/pre-upgrade-app-home.png "App Home with upgrade available")
+
+![Modal shown after using the Check app version global shortcut](/images/check-app-version-shortcut.png "Check app version global shortcut")
 
 ### Upgrading the app
 
@@ -136,7 +142,11 @@ Initiate an upgrade of the app by following any of the upgrade prompts now visib
 
 Once installed, the App Home will reflect this change and end users will no longer see upgrade prompts when interacting with the app since the workspace now has the latest version. Since this app only includes bot scopes (i.e. no user token scopes are installed or requested), the app is now upgraded for every user on the workspace.
 
+![App Home when the app has been fully upgraded](/images/fully-upgraded-app-home.png "App Home after upgrade")
+
 To test the new feature, navigate to any public or private channel, use the command `/invite @Upgrade App Bot`, and then send a message to the channel that includes the bot's display name. If everything is setup correctly and the app upgraded, the bot should react.
+
+**Tip:** Install the app to a second workspace. You'll find that if the installed scopes differs between them, the app home will reflect this and prompt one or both to upgrade if necessary.
 
 ### Uninstalling the app
 
