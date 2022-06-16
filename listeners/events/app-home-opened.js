@@ -73,7 +73,7 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: 'Try the `/check-app-version` slash command.\nTry the *Check app version* global shortcut.',
+            text: '• Try the `/check-app-version` slash command.\n• Try the *Check app version* global shortcut.',
           },
         },
         {
@@ -180,7 +180,7 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
       const appHomeTestingSection = view.blocks[7];
 
       // Upgraded apps have a new feature where you can @-mention the bot
-      const newFeatureDesc = '\n`/invite` the bot to a channel and @-mention it.';
+      const newFeatureDesc = '\n• :sparkles: `/invite` the bot to a channel and _@-mention_ it.';
       appHomeTestingSection.text.text += newFeatureDesc;
     }
 
