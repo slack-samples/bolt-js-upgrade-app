@@ -171,6 +171,19 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
       });
     }
 
+    // If by this point we don't need to upgrade, this means the current install contains the
+    // full set of possible scopes and the install is considered fully upgraded.
+    // Added functionality is available so we can share this with the user correct section.
+
+    if (!upgrade) {
+      // Accessing 'Testing action' section of default app home view so we can append some text.
+      const appHomeTestingSection = view.blocks[7];
+
+      // Upgraded apps have a new feature where you can @-mention the bot
+      const newFeatureDesc = '\n`invite` the bot to a channel and @-mention it.';
+      appHomeTestingSection.text.text.concat(newFeatureDesc);
+    }
+
     try {
       await client.views.publish({
         user_id: event.user,
