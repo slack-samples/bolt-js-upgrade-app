@@ -1,4 +1,6 @@
-# Upgrade App Sample
+# Upgrade App Manager
+
+_Learn how to check if a Slack app is using the latest permission scopes and the techiques to prompt users to install if an upgrade is needed._
 
 ## Background
 
