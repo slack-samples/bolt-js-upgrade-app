@@ -31,9 +31,5 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "nodemon": "^2.0.15"
-  },
-  "engines": {
-    "node": ">=20",
-    "npm": ">=9.6.4"
   }
 }
