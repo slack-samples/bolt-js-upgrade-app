@@ -8,15 +8,44 @@ Slack does not currently provide a way for end users to know that a newer versio
 
 The responsibility falls to app developers to notify admins and end users in Slack when such an update requiring action (i.e. install to append new scopes) is available. This sample app combines several of those techniques in a single app so that developers can learn where/how to creatively alert users when app updates are available to their workspace. In this way, workspaces can be updated quicker and more effectively rather than lagging behind the latest release and requiring support to understand why/how to access new features.
 
-## Project setup
+## Installation
 
-### Create a Slack App
+### Using Slack CLI
+
+Install the latest version of the Slack CLI for your operating system:
+
+- [Slack CLI for macOS & Linux](https://docs.slack.dev/tools/slack-cli/guides/installing-the-slack-cli-for-mac-and-linux/)
+- [Slack CLI for Windows](https://docs.slack.dev/tools/slack-cli/guides/installing-the-slack-cli-for-windows/)
+
+You'll also need to log in if this is your first time using the Slack CLI.
+
+```sh
+slack login
+```
+
+#### Initializing the project
+
+```sh
+slack create bolt-js-upgrade-app --template slack-samples/bolt-js-upgrade-app
+cd bolt-js-upgrade-app
+```
+
+#### Running the app
+
+```sh
+slack run
+```
+
+<details>
+<summary><h3>Using Terminal</h3></summary>
+
+#### Create a Slack App
 1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest".
 2. Choose the workspace you want to install the application to.
 3. Copy the entire contents of [manifest.json](./manifest.json) into the JSON text box (replacing the placeholder text) and click *Next*.
 4. Review the configuration and click *Create*.
 
-### Environment Variables
+#### Environment Variables
 Before you can run the app, you'll need to create an `.env` file and update the secrets:
 
 1. Copy `.env.sample` to `.env`
@@ -26,7 +55,7 @@ Before you can run the app, you'll need to create an `.env` file and update the 
 5. Set `SLACK_START_SCOPES` to `chat:write,commands` and your `SLACK_UPGRADE_SCOPES` to `chat:write,commands,app_mentions:read,reactions:write`.
 6. Finally, set `SLACK_PROMPT_INSTALL` to `false` to start.
 
-### Install Dependencies
+#### Install Dependencies
 
 ``` bash
 git clone https://github.com/slack-samples/bolt-js-upgrade-app.git
@@ -34,11 +63,13 @@ cd bolt-js-upgrade-app
 npm install
 ```
 
-### Run Bolt Server
+#### Run Bolt Server
 
 `npm start` or
 
 `npm start dev` (_automatically restarting the node application when file changes_)
+
+</details>
 
 ## Project Structure
 
