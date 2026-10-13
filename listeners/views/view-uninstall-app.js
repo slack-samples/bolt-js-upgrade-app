@@ -24,7 +24,8 @@ const viewUninstallApp = async ({ ack, body, client }) => {
               type: 'mrkdwn',
               text: `This app has been uninstalled. Click <${process.env.SLACK_HOSTNAME}/install|here> to reinstall the base version of this app.`,
             },
-          }],
+          },
+        ],
       },
     });
   } catch (error) {

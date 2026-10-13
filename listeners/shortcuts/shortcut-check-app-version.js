@@ -11,7 +11,6 @@ const shortcutCheckAppVersion = async ({ shortcut, ack, body, client }) => {
     // Prepare default modal view if an upgrade isn't available or necessary
     let upgrade = false;
 
-    // eslint-disable-next-line prefer-const
     const view = {
       type: 'modal',
       title: {

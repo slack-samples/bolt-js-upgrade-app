@@ -5,9 +5,10 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint --ext .js ."
+    "lint": "npx @biomejs/biome check .",
+    "lint:fix": "npx @biomejs/biome check --write .",
+    "start": "node app.js"
   },
   "author": "Slack Technologies, LLC",
   "license": "MIT",
@@ -28,9 +29,7 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.10.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.32.0",
+    "@biomejs/biome": "^2.5.14",
     "nodemon": "^2.0.22"
   }
 }
