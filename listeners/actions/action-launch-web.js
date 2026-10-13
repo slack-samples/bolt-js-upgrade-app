@@ -6,4 +6,4 @@ const actionLaunchWeb = async ({ ack }) => {
   }
 };
 
-module.exports = { actionLaunchWeb };
+export { actionLaunchWeb };

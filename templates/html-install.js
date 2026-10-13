@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const css = `
     html {
@@ -36,4 +38,4 @@ const htmlInstall = `
     </html>
   `;
 
-module.exports = htmlInstall;
+export { htmlInstall };

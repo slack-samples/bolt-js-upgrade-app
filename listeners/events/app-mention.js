@@ -18,4 +18,4 @@ const appMentionCallback = async ({ client, event }) => {
   }
 };
 
-module.exports = { appMentionCallback };
+export { appMentionCallback };

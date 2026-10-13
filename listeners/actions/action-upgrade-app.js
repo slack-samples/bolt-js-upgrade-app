@@ -6,4 +6,4 @@ const actionUpgradeApp = async ({ ack }) => {
   }
 };
 
-module.exports = { actionUpgradeApp };
+export { actionUpgradeApp };

@@ -42,4 +42,4 @@ const viewUninstallApp = async ({ ack, body, client }) => {
   }
 };
 
-module.exports = { viewUninstallApp };
+export { viewUninstallApp };

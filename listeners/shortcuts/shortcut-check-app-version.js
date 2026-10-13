@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const shortcutCheckAppVersion = async ({ shortcut, ack, body, client }) => {
   try {
@@ -60,4 +62,4 @@ const shortcutCheckAppVersion = async ({ shortcut, ack, body, client }) => {
   }
 };
 
-module.exports = { shortcutCheckAppVersion };
+export { shortcutCheckAppVersion };

@@ -2,6 +2,7 @@
   "name": "bolt-js-upgrade-app",
   "version": "1.0.0",
   "description": "Slack app demonstrating how to prompt users to update existing installations",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

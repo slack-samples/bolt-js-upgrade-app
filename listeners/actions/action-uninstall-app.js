@@ -35,4 +35,4 @@ const actionUninstallApp = async ({ ack, body, client }) => {
   }
 };
 
-module.exports = { actionUninstallApp };
+export { actionUninstallApp };
