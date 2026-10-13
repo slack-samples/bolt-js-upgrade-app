@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const viewSendTestNotif = async ({ ack, client, body, respond }) => {
   try {
@@ -70,4 +72,4 @@ const viewSendTestNotif = async ({ ack, client, body, respond }) => {
   }
 };
 
-module.exports = { viewSendTestNotif };
+export { viewSendTestNotif };

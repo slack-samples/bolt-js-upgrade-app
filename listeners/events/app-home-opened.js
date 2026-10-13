@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const appHomeOpenedCallback = async ({ client, event, body }) => {
   // Ignore the `app_home_opened` event for anything but the Home tab
@@ -197,4 +199,4 @@ const appHomeOpenedCallback = async ({ client, event, body }) => {
   }
 };
 
-module.exports = { appHomeOpenedCallback };
+export { appHomeOpenedCallback };

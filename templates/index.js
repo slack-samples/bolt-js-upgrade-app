@@ -1,5 +1,5 @@
-const htmlApp = require('./html-app');
-const htmlInstall = require('./html-install');
-const htmlUpgrade = require('./html-upgrade');
+import { htmlApp } from './html-app.js';
+import { htmlInstall } from './html-install.js';
+import { htmlUpgrade } from './html-upgrade.js';
 
-module.exports = { htmlApp, htmlInstall, htmlUpgrade };
+export { htmlApp, htmlInstall, htmlUpgrade };

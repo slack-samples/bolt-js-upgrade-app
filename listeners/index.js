@@ -1,10 +1,10 @@
-const actions = require('./actions');
-const commands = require('./commands');
-const events = require('./events');
-const shortcuts = require('./shortcuts');
-const views = require('./views');
+import * as actions from './actions/index.js';
+import * as commands from './commands/index.js';
+import * as events from './events/index.js';
+import * as shortcuts from './shortcuts/index.js';
+import * as views from './views/index.js';
 
-module.exports.registerListeners = (app) => {
+export const registerListeners = (app) => {
   actions.register(app);
   commands.register(app);
   events.register(app);

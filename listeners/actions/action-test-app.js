@@ -49,4 +49,4 @@ const actionTestApp = async ({ ack, body, client }) => {
   }
 };
 
-module.exports = { actionTestApp };
+export { actionTestApp };

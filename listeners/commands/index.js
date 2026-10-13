@@ -1,5 +1,5 @@
-const { commandCheckAppVersion } = require('./command-check-version');
+import { commandCheckAppVersion } from './command-check-version.js';
 
-module.exports.register = (app) => {
+export const register = (app) => {
   app.command('/check-app-version', commandCheckAppVersion);
 };

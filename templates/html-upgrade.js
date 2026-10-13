@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const css = `
     html {
@@ -36,4 +38,4 @@ const htmlUpgrade = `
     </html>
   `;
 
-module.exports = htmlUpgrade;
+export { htmlUpgrade };

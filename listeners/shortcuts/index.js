@@ -1,5 +1,5 @@
-const { shortcutCheckAppVersion } = require('./shortcut-check-app-version');
+import { shortcutCheckAppVersion } from './shortcut-check-app-version.js';
 
-module.exports.register = (app) => {
+export const register = (app) => {
   app.shortcut('shortcut_check_app_version', shortcutCheckAppVersion);
 };

@@ -1,9 +1,9 @@
-const { actionLaunchWeb } = require('./action-launch-web');
-const { actionUpgradeApp } = require('./action-upgrade-app');
-const { actionUninstallApp } = require('./action-uninstall-app');
-const { actionTestApp } = require('./action-test-app');
+import { actionLaunchWeb } from './action-launch-web.js';
+import { actionTestApp } from './action-test-app.js';
+import { actionUninstallApp } from './action-uninstall-app.js';
+import { actionUpgradeApp } from './action-upgrade-app.js';
 
-module.exports.register = (app) => {
+export const register = (app) => {
   app.action('btn_launch_web', actionLaunchWeb);
   app.action('btn_upgrade_app', actionUpgradeApp);
   app.action('btn_uninstall_app', actionUninstallApp);

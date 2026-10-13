@@ -1,7 +1,7 @@
-const { appHomeOpenedCallback } = require('./app-home-opened');
-const { appMentionCallback } = require('./app-mention');
+import { appHomeOpenedCallback } from './app-home-opened.js';
+import { appMentionCallback } from './app-mention.js';
 
-module.exports.register = (app) => {
+export const register = (app) => {
   app.event('app_home_opened', appHomeOpenedCallback);
   app.event('app_mention', appMentionCallback);
 };

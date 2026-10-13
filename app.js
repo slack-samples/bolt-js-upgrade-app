@@ -1,9 +1,9 @@
-const { App, FileInstallationStore, LogLevel } = require('@slack/bolt');
-const { registerListeners } = require('./listeners');
+import { App, FileInstallationStore, LogLevel } from '@slack/bolt';
+import { config } from 'dotenv';
+import { registerListeners } from './listeners/index.js';
+import * as html from './templates/index.js';
 
-const html = require('./templates');
-
-require('dotenv').config();
+config();
 
 // Initialization
 const app = new App({

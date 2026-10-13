@@ -1,4 +1,6 @@
-require('dotenv').config();
+import { config } from 'dotenv';
+
+config();
 
 const commandCheckAppVersion = async ({ ack, client, body, respond }) => {
   try {
@@ -57,4 +59,4 @@ const commandCheckAppVersion = async ({ ack, client, body, respond }) => {
   }
 };
 
-module.exports = { commandCheckAppVersion };
+export { commandCheckAppVersion };
