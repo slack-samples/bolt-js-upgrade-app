@@ -9,7 +9,6 @@ const viewSendTestNotif = async ({ ack, client, body, respond }) => {
     // Prepare default message if an upgrade isn't available or necessary
     let upgrade = false;
 
-    // eslint-disable-next-line prefer-const
     const message = {
       response_type: 'in_channel',
       text: 'What do you know, it works?',
