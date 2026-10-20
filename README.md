@@ -8,6 +8,46 @@ Slack does not currently provide a way for end users to know that a newer versio
 
 The responsibility falls to app developers to notify admins and end users in Slack when such an update requiring action (i.e. install to append new scopes) is available. This sample app combines several of those techniques in a single app so that developers can learn where/how to creatively alert users when app updates are available to their workspace. In this way, workspaces can be updated quicker and more effectively rather than lagging behind the latest release and requiring support to understand why/how to access new features.
 
+## Claude Code, Codex, Cursor, and Other Coding Agents
+
+Install the [Slack MCP and Skills Plugin](https://docs.slack.dev/ai/slack-skills-plugin/) so your coding agent can create, run, and deploy Slack apps, look up Web API methods and scopes, and build Block Kit without guessing.
+
+### Claude Code
+
+Run this in a Claude Code session:
+
+```
+/plugin install slack@claude-plugins-official
+```
+
+### Codex
+
+Run this in your terminal:
+
+```sh
+codex plugin marketplace add slackapi/slack-skills-plugin
+codex plugin add slack@slack
+```
+
+### Cursor
+
+Run this in a Cursor Agent chat:
+
+```
+/add-plugin slack
+```
+
+### Other agents
+
+Install the skills with `npx skills`, using your [agent's identifier](https://github.com/vercel-labs/skills#supported-agents):
+
+```sh
+npx skills add slackapi/slack-skills-plugin -y -a <agent>
+
+# For example, OpenCode
+npx skills add slackapi/slack-skills-plugin -y -a opencode
+```
+
 ## Project setup
 
 ### Create a Slack App
