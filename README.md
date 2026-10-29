@@ -51,24 +51,26 @@ npx skills add slackapi/slack-skills-plugin -y -a opencode
 ## Project setup
 
 ### Create a Slack App
+
 1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest".
 2. Choose the workspace you want to install the application to.
-3. Copy the entire contents of [manifest.json](./manifest.json) into the JSON text box (replacing the placeholder text) and click *Next*.
-4. Review the configuration and click *Create*.
+3. Copy the entire contents of [manifest.json](./manifest.json) into the JSON text box (replacing the placeholder text) and click _Next_.
+4. Review the configuration and click _Create_.
 
 ### Environment Variables
+
 Before you can run the app, you'll need to create an `.env` file and update the secrets:
 
 1. Copy `.env.sample` to `.env`
-2. Open your newly created app's configuration page from [this list](https://api.slack.com/apps), click *Basic Information* from the left hand menu, and copy the values for the `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`, `SLACK_SIGNING_SECRET` into your `.env` file.
-3. Follow the steps in the *App-Level Tokens* section of your app config to create an app-level token with the `connections:write` scope. Give it whatever name you like and copy the token into your `.env` as `SLACK_APP_TOKEN`.
+2. Open your newly created app's configuration page from [this list](https://api.slack.com/apps), click _Basic Information_ from the left hand menu, and copy the values for the `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`, `SLACK_SIGNING_SECRET` into your `.env` file.
+3. Follow the steps in the _App-Level Tokens_ section of your app config to create an app-level token with the `connections:write` scope. Give it whatever name you like and copy the token into your `.env` as `SLACK_APP_TOKEN`.
 4. Set `SLACK_HOSTNAME` to `https://<site>.ngrok.io` if using ngrok ([see guide below](#oauth)) or to the public endpoint of your choice where your app will be running. Set `SLACK_REDIRECT_URI` to the same domain but include the path `/slack/oauth_redirect`. Delete or overwrite the placeholder value `http://localhost/slack/oauth_redirect`.
 5. Set `SLACK_START_SCOPES` to `chat:write,commands` and your `SLACK_UPGRADE_SCOPES` to `chat:write,commands,app_mentions:read,reactions:write`.
 6. Finally, set `SLACK_PROMPT_INSTALL` to `false` to start.
 
 ### Install Dependencies
 
-``` bash
+```bash
 git clone https://github.com/slack-samples/bolt-js-upgrade-app.git
 cd bolt-js-upgrade-app
 npm install
@@ -96,7 +98,7 @@ Every incoming request is routed to a "listener". Inside this directory, we grou
 
 ### `/templates`
 
-Stores the HTML files rendered by the various custom http routes to simulate an app's external web application. 
+Stores the HTML files rendered by the various custom http routes to simulate an app's external web application.
 
 ## OAuth
 
@@ -176,7 +178,7 @@ Similarly, add the new bot event `"app_mention"` to the event subscription secti
 
 The last step in signalling that the app is ready for an update is to set the `SLACK_PROMPT_INSTALL` environment variable to `true`. This environment variable is used to determine if the app should present upgrade prompt messages to end users as they interact with your app. You will need to restart you Bolt app for this change to be applied.
 
-In the terminal where your Bolt app is running, use the command `Cmd/Ctrl + C` to interrupt the process. Run the app again using ``npm start` or `npm start dev`.
+In the terminal where your Bolt app is running, use the command `Cmd/Ctrl + C` to interrupt the process. Run the app again using `npm start` or `npm start dev`.
 
 Back in Slack, navigate to the App Home (you might need to open a channel and then return to the App Home to trigger a new `app_home_opened` event) and test the various commands and actions to notice how they now include additional messaging. If you were to invite the bot to a channel and @-mention it, nothing would happen (this is the new feature you'll update to in a moment).
 
